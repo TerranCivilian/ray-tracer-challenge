@@ -18,6 +18,7 @@ enable_testing()
 add_executable(
   main
   main.cpp
+  Tuple.cpp
 )
 target_link_libraries(
   main
