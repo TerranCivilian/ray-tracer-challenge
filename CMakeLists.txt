@@ -15,15 +15,17 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
+include_directories(include)
+
 add_executable(
-  main
-  main.cpp
-  Tuple.cpp
+  TupleTest
+  test/TupleTest.cpp
+  src/Tuple.cpp
 )
 target_link_libraries(
-  main
+  TupleTest
   GTest::gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(main)
+gtest_discover_tests(TupleTest)

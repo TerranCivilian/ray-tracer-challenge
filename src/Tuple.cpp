@@ -1,6 +1,6 @@
 #include <cmath>
 #include <cstdio>
-#include "Tuple.h"
+#include <Tuple.h>
 
 namespace tuple {
 

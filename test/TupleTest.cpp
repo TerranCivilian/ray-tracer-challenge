@@ -1,6 +1,6 @@
 #include <cmath>
 #include <gtest/gtest.h>
-#include "Tuple.h"
+#include <Tuple.h>
 
 TEST(TupleTest, Point) {
     tuple::Tuple a{4.3, -4.2, 3.1, 1.0};
