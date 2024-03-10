@@ -17,6 +17,13 @@ enable_testing()
 
 include_directories(include)
 
+set(sources
+  src/main.cpp
+  src/Tuple.cpp
+)
+
+add_executable(main ${sources})
+
 add_executable(
   TupleTest
   test/TupleTest.cpp
