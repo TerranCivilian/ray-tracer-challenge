@@ -143,3 +143,19 @@ TEST(TupleTest, MagnitudeOfNormalizedVector) {
     double expected = 1;
     EXPECT_NEAR(tuple::magnitude(norm), expected, tuple::err);
 }
+
+TEST(TupleTest, DotProduct) {
+    tuple::Tuple a = tuple::vector(1, 2, 3);
+    tuple::Tuple b = tuple::vector(2, 3 ,4);
+    double expected = 20;
+    EXPECT_EQ(tuple::dot(a, b), expected);
+}
+
+TEST(TupleTest, CrossProduct) {
+    tuple::Tuple a = tuple::vector(1, 2, 3);
+    tuple::Tuple b = tuple::vector(2, 3 ,4);
+    tuple::Tuple expected1 = tuple::vector(-1, 2, -1);
+    tuple::Tuple expected2 = tuple::vector(1, -2, 1);
+    EXPECT_EQ(tuple::cross(a, b), expected1);
+    EXPECT_EQ(tuple::cross(b, a), expected2);
+}

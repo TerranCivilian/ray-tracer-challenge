@@ -25,6 +25,8 @@ const Tuple operator*(const double scalar, const Tuple& rhs);
 const bool operator==(const Tuple& lhs, const Tuple& rhs);
 const double magnitude(const Tuple& vec);
 const Tuple normalize(const Tuple& vec);
+const double dot(const Tuple& a, const Tuple& b);
+const Tuple cross(const Tuple& a, const Tuple& b);
 
 const double err = 0.00001;
 

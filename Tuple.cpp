@@ -56,12 +56,22 @@ const bool operator==(const Tuple& lhs, const Tuple& rhs) {
 }
 
 const double magnitude(const Tuple& vec) {
-    return std::sqrt(std::pow(vec.e[0], 2) + std::pow(vec.e[1], 2) + std::pow(vec.e[2], 2) + std::pow(vec.e[3], 2));
+    return std::sqrt(vec.e[0]*vec.e[0] + vec.e[1]*vec.e[1] + vec.e[2]*vec.e[2] + vec.e[3]*vec.e[3]);
 }
 
 const Tuple normalize(const Tuple& vec) {
     double mag = magnitude(vec);
     return Tuple{vec.e[0] / mag, vec.e[1] / mag, vec.e[2] / mag, vec.e[3] / mag};
+}
+
+const double dot(const Tuple& a, const Tuple& b) {
+    return a.e[0] * b.e[0] + a.e[1] * b.e[1] + a.e[2] * b.e[2] + a.e[3] * b.e[3];
+}
+
+const Tuple cross(const Tuple& a, const Tuple& b) {
+    return vector(a.e[1] * b.e[2] - a.e[2] * b.e[1],
+        a.e[2] * b.e[0] - a.e[0] * b.e[2],
+        a.e[0] * b.e[1] - a.e[1] * b.e[0]);
 }
 
 }
