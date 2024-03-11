@@ -11,22 +11,27 @@ public:
     double y() const { return e[1]; }
     double z() const { return e[2]; }
     double w() const { return e[3]; }
+    double r() const { return e[0]; }
+    double g() const { return e[1]; }
+    double b() const { return e[2]; }
 
-    const Tuple& operator-();
-    const Tuple& operator*(const double scalar);
-    const Tuple& operator/(const double scalar);
+    Tuple& operator-();
+    Tuple& operator*(const double scalar);
+    Tuple& operator/(const double scalar);
 };
 
 Tuple point(double x, double y, double z);
 Tuple vector(double x, double y, double z);
-const Tuple operator+(const Tuple& lhs, const Tuple& rhs);
-const Tuple operator-(const Tuple& lhs, const Tuple& rhs);
-const Tuple operator*(const double scalar, const Tuple& rhs);
+Tuple color(double r, double g, double b);
+Tuple operator+(const Tuple& lhs, const Tuple& rhs);
+Tuple operator-(const Tuple& lhs, const Tuple& rhs);
+Tuple operator*(const double scalar, const Tuple& rhs);
+Tuple operator*(const Tuple& lhs, const Tuple& rhs);
 const bool operator==(const Tuple& lhs, const Tuple& rhs);
 const double magnitude(const Tuple& vec);
-const Tuple normalize(const Tuple& vec);
+Tuple normalize(const Tuple& vec);
 const double dot(const Tuple& a, const Tuple& b);
-const Tuple cross(const Tuple& a, const Tuple& b);
+Tuple cross(const Tuple& a, const Tuple& b);
 
 const double err = 0.00001;
 

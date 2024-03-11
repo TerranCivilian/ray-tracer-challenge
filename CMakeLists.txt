@@ -20,6 +20,7 @@ include_directories(include)
 set(sources
   src/main.cpp
   src/Tuple.cpp
+  src/Canvas.cpp
 )
 
 add_executable(main ${sources})
@@ -34,5 +35,28 @@ target_link_libraries(
   GTest::gtest_main
 )
 
+add_executable(
+  ColorTest
+  test/ColorTest.cpp
+  src/Tuple.cpp
+)
+target_link_libraries(
+  ColorTest
+  GTest::gtest_main
+)
+
+add_executable(
+  CanvasTest
+  test/CanvasTest.cpp
+  src/Canvas.cpp
+  src/Tuple.cpp
+)
+target_link_libraries(
+  CanvasTest
+  GTest::gtest_main
+)
+
 include(GoogleTest)
 gtest_discover_tests(TupleTest)
+gtest_discover_tests(ColorTest)
+gtest_discover_tests(CanvasTest)

@@ -1,7 +1,10 @@
 #include <cstdio>
+#include <fstream>
 #include <Tuple.h>
+#include <Canvas.h>
 
 using namespace tuple;
+using namespace canvas;
 
 struct projectile {
     Tuple position;
@@ -20,11 +23,26 @@ const struct projectile tick(const struct environment& e, const struct projectil
 }
 
 int main(void) {
-    const struct environment e{vector(0, -0.1, 0), vector(-0.01, 0, 0)};
-    struct projectile p{tuple::point(0, 1, 0), normalize(vector(1, 1, 0))};
+    Tuple start = point(0, 1, 0);
+    Tuple velocity = normalize(vector(1, 1.8, 0)) * 11.25;
+    struct projectile p{start, velocity};
+
+    Tuple gravity = vector(0, -0.1, 0);
+    Tuple wind = vector(-0.01, 0, 0);
+    const struct environment e{gravity, wind};
+
+    Canvas c(900, 550);
+
     while (p.position.y() >= 0) {
         printf("p.position is [ %lf, %lf, %lf ]\n", p.position.x(), p.position.y(), p.position.z());
+        c.write(p.position.x(), c.height()-p.position.y(), color(1, 1, 1));
         p = tick(e, p);
     }
+
+    std::string ppm = to_ppm(c);
+    std::ofstream output("output.ppm");
+    output << ppm;
+    output.close();
+    
     return 0;
 }
