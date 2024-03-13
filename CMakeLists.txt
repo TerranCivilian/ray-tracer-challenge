@@ -56,7 +56,18 @@ target_link_libraries(
   GTest::gtest_main
 )
 
+add_executable(
+  MatrixTest
+  test/MatrixTest.cpp
+  src/Tuple.cpp
+)
+target_link_libraries(
+  MatrixTest
+  GTest::gtest_main
+)
+
 include(GoogleTest)
 gtest_discover_tests(TupleTest)
 gtest_discover_tests(ColorTest)
 gtest_discover_tests(CanvasTest)
+gtest_discover_tests(MatrixTest)

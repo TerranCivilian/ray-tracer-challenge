@@ -1,11 +1,12 @@
 #include <gtest/gtest.h>
 #include <Tuple.h>
+#include <Util.h>
 
 TEST(ColorTest, Color) {
     tuple::Tuple c = tuple::color(-0.5, 0.4, 1.7);
-    EXPECT_NEAR(c.r(), -0.5, tuple::err);
-    EXPECT_NEAR(c.g(), 0.4, tuple::err);
-    EXPECT_NEAR(c.b(), 1.7, tuple::err);
+    EXPECT_NEAR(c.r(), -0.5, util::err);
+    EXPECT_NEAR(c.g(), 0.4, util::err);
+    EXPECT_NEAR(c.b(), 1.7, util::err);
 }
 
 TEST(ColorTest, Addition) {

@@ -1,21 +1,22 @@
 #include <cmath>
 #include <gtest/gtest.h>
 #include <Tuple.h>
+#include <Util.h>
 
 TEST(TupleTest, Point) {
     tuple::Tuple a{4.3, -4.2, 3.1, 1.0};
-    EXPECT_NEAR(a.x(), 4.3, tuple::err);
-    EXPECT_NEAR(a.y(), -4.2, tuple::err);
-    EXPECT_NEAR(a.z(), 3.1, tuple::err);
-    EXPECT_NEAR(a.w(), 1.0, tuple::err);
+    EXPECT_NEAR(a.x(), 4.3, util::err);
+    EXPECT_NEAR(a.y(), -4.2, util::err);
+    EXPECT_NEAR(a.z(), 3.1, util::err);
+    EXPECT_NEAR(a.w(), 1.0, util::err);
 }
 
 TEST(TupleTest, Vector) {
     tuple::Tuple a{4.3, -4.2, 3.1, 0.0};
-    EXPECT_NEAR(a.x(), 4.3, tuple::err);
-    EXPECT_NEAR(a.y(), -4.2, tuple::err);
-    EXPECT_NEAR(a.z(), 3.1, tuple::err);
-    EXPECT_NEAR(a.w(), 0.0, tuple::err);
+    EXPECT_NEAR(a.x(), 4.3, util::err);
+    EXPECT_NEAR(a.y(), -4.2, util::err);
+    EXPECT_NEAR(a.z(), 3.1, util::err);
+    EXPECT_NEAR(a.w(), 0.0, util::err);
 }
 
 TEST(TupleTest, PointFactory) {
@@ -99,31 +100,31 @@ TEST(TupleTest, DivideByScalar) {
 TEST(TupleTest, Magnitude1) {
     tuple::Tuple v = tuple::vector(1, 0, 0);
     double expected = 1;
-    EXPECT_NEAR(tuple::magnitude(v), expected, tuple::err);
+    EXPECT_NEAR(tuple::magnitude(v), expected, util::err);
 }
 
 TEST(TupleTest, Magnitude2) {
     tuple::Tuple v = tuple::vector(0, 1, 0);
     double expected = 1;
-    EXPECT_NEAR(tuple::magnitude(v), expected, tuple::err);
+    EXPECT_NEAR(tuple::magnitude(v), expected, util::err);
 }
 
 TEST(TupleTest, Magnitude3) {
     tuple::Tuple v = tuple::vector(0, 0, 1);
     double expected = 1;
-    EXPECT_NEAR(tuple::magnitude(v), expected, tuple::err);
+    EXPECT_NEAR(tuple::magnitude(v), expected, util::err);
 }
 
 TEST(TupleTest, Magnitude4) {
     tuple::Tuple v = tuple::vector(1, 2, 3);
     double expected = std::sqrt(14);
-    EXPECT_NEAR(tuple::magnitude(v), expected, tuple::err);
+    EXPECT_NEAR(tuple::magnitude(v), expected, util::err);
 }
 
 TEST(TupleTest, Magnitude5) {
     tuple::Tuple v = tuple::vector(-1, -2, -3);
     double expected = std::sqrt(14);
-    EXPECT_NEAR(tuple::magnitude(v), expected, tuple::err);
+    EXPECT_NEAR(tuple::magnitude(v), expected, util::err);
 }
 
 TEST(TupleTest, Normalize1) {
@@ -141,7 +142,7 @@ TEST(TupleTest, Normalize2) {
 TEST(TupleTest, MagnitudeOfNormalizedVector) {
     tuple::Tuple norm = tuple::normalize(tuple::vector(1, 2, 3));
     double expected = 1;
-    EXPECT_NEAR(tuple::magnitude(norm), expected, tuple::err);
+    EXPECT_NEAR(tuple::magnitude(norm), expected, util::err);
 }
 
 TEST(TupleTest, DotProduct) {
